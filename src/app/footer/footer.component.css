@@ -1,0 +1,41 @@
+footer {
+  border-top: 1px solid #F1F1F1;
+  background: #CAEBF2;
+  min-height: 100px;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.copyrights {
+  margin-left: 15px;
+  font-size: 80%;
+  color: #A9A9A9;
+}
+
+button {
+  margin-right: 25px;
+  padding: 5px 8px;
+  background-color: #FF3B3F;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 2px;
+  max-width: 50px;
+  align-items: right;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}

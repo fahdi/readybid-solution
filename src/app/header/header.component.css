@@ -1,0 +1,32 @@
+header {
+    border-bottom: 1px solid #f1f1f1;
+    background: #FF3B3F;
+    height: 100px;
+    min-height: 100px;
+    max-width: 400px;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: flex;
+}
+
+.header__inner {
+    display: flex;
+    color: white;
+}
+
+.logo {
+    width: auto;
+    height: 45px;
+}
+
+.slogan {
+    font-size: 12px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

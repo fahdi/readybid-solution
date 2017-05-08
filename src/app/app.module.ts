@@ -6,19 +6,26 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContentComponent } from './content/content.component';
+import { SimpleFormComponent } from './simple-form/simple-form.component';
+import { HttpLoggerConsoleComponent } from './http-logger-console/http-logger-console.component';
+import {HttpLoggerService} from './http-logger.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ContentComponent,
+    SimpleFormComponent,
+    HttpLoggerConsoleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [{provide: 'logger', useClass: HttpLoggerService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
