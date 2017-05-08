@@ -1,0 +1,9 @@
+div {
+  background: #565656;
+  height: 130px !important;
+  width: 100%;
+  min-width: 100%;
+  color: #f1f1f1;
+  overflow: scroll;
+  font-size: 10px;
+}

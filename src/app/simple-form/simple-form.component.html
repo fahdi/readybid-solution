@@ -1,0 +1,15 @@
+<div class="form-group">
+  <form #textNumberForm="ngForm" (ngSubmit)="onSubmit()">
+    <label for="theText">Text</label>
+    <input type="text" #theText name="theText" [(ngModel)]="formValues.theText" required="required" maxlength="50">
+    <div *ngIf="formErrors.theText" class="alert alert-danger">
+      {{ formErrors.theText }}
+    </div>
+    <label>Number</label>
+    <input type="number" #theNumber name="theNumber" [(ngModel)]="formValues.theNumber" required="required" min="0"
+           max="10000" step=".10" pattern="^\d+(?:\.\d{1,2})?$">
+    <div *ngIf="formErrors.theNumber" class="alert alert-danger">
+      {{ formErrors.theNumber }}
+    </div>
+  </form>
+</div>
