@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { HttpLoggerService } from './http-logger.service';
 
 @Component({
@@ -7,9 +7,11 @@ import { HttpLoggerService } from './http-logger.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor () {
+  isValid = false;
 
+  constructor(@Inject('logger') private logger) {
   }
+
 
   isFormValid() {
     // console.log('method validation called');

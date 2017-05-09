@@ -21,6 +21,7 @@ export class SimpleFormComponent implements OnInit, AfterViewChecked {
 
   textNumberForm: NgForm;
   @ViewChild('textNumberForm') currentForm: NgForm;
+  @Output() isValid = new EventEmitter();
 
   // Defining the validation error messages
   validationMessages = {
@@ -34,31 +35,15 @@ export class SimpleFormComponent implements OnInit, AfterViewChecked {
     }
   };
 
-
-  @Output() isValid = new EventEmitter();
-
   formValues: FormData = {
     theText: 'text',
     theNumber: 12.33
   };
 
   formErrors = {
-  'theText': '',
-  'theNumber': ''
+    'theText': '',
+    'theNumber': ''
   };
-
-/*  validateNumber(field) {
-    if (/^\d+(?:\.\d{1,2})?$/.test(field.value)) {
-      field.style.backgroundColor = 'white';
-      this.formErrors.theNumber = '';
-      return true;
-    } else {
-      field.style.backgroundColor = 'red';
-      // A little hack, not pretty but would work for now
-     // this.formErrors.theNumber = this.validationMessages.theNumber.decimals;
-      return false;
-    }
-  }*/
 
   constructor() {
   }
@@ -75,10 +60,22 @@ export class SimpleFormComponent implements OnInit, AfterViewChecked {
   }
 
   formChanged() {
+
+    if (this.currentForm.valid) {
+      console.log('emit valid');
+      this.isValid.emit(true);
+    } else {
+      console.log('emit invalid');
+      this.isValid.emit(false);
+    }
+
     if (this.currentForm === this.textNumberForm) {
+      console.log('did work');
       return;
     }
+
     this.textNumberForm = this.currentForm;
+
     if (this.textNumberForm) {
       this.textNumberForm.valueChanges
         .subscribe(data => this.onValueChanged(data));

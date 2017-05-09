@@ -1,15 +1,19 @@
 div {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 400px;
+  background: #EFEFEF;
   height: 250px;
-  width: 190px;
+  width: 100%;
   margin: auto;
-  padding: 10px;
   color: #7B999C;
 }
 
 form {
   max-width: 350px;
-  border: 1px #CCC dotted;
-  padding: 15px;
+  padding: 25px;
 }
 
 label {

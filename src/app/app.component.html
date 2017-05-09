@@ -1,5 +1,6 @@
 <div id="app">
   <app-header></app-header>
-  <app-content></app-content>
+  <app-simple-form (isValid)="isValid = $event"></app-simple-form>
+  <app-http-logger-console></app-http-logger-console>
   <app-footer [isValid]="isFormValid"></app-footer>
 </div>
