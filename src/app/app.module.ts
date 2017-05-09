@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ContentComponent } from './content/content.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { HttpLoggerConsoleComponent } from './http-logger-console/http-logger-console.component';
 import {HttpLoggerService} from './http-logger.service';
@@ -16,7 +15,6 @@ import {HttpLoggerService} from './http-logger.service';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContentComponent,
     SimpleFormComponent,
     HttpLoggerConsoleComponent
   ],
