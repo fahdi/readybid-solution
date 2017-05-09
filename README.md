@@ -1,6 +1,6 @@
 # Readybid Solution
 
-#Requirements 
+## Requirements 
 Create an Angular web page containing horizontally and vertically centered container of 400px in width and 600px in height containing: 
 
 - Header area that’s 100px in height with red background and some text
