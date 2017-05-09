@@ -1,6 +1,6 @@
 <div id="app">
   <app-header></app-header>
-  <app-simple-form (isValid)="isValid = $event"></app-simple-form>
+  <app-simple-form (validFlag)="setIsValid($event)"></app-simple-form>
   <app-http-logger-console></app-http-logger-console>
-  <app-footer [isValid]="isFormValid"></app-footer>
+  <app-footer (submitted)="onButtonClick($event)"></app-footer>
 </div>

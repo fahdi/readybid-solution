@@ -1,22 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  @Input()
-  isValid = Function;
+  @Output()
+  submitted: EventEmitter<boolean>= new EventEmitter<boolean>();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
   handleSubmit() {
     // Submit the form action here
-    console.log('the form is valid and button is clicked.');
+    this.submitted.emit(true);
+    console.log('button is clicked.');
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, AfterViewInit } from '@angular/core';
 import { HttpLoggerService } from './http-logger.service';
 
 @Component({
@@ -7,15 +7,23 @@ import { HttpLoggerService } from './http-logger.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isValid = false;
+
+  isValid: boolean;
 
   constructor(@Inject('logger') private logger) {
   }
 
-
-  isFormValid() {
-    // console.log('method validation called');
-    // Will return true if form is valid and is ready to be submitted
-    return false;
+  setIsValid(value) {
+    console.log(value);
+    this.isValid = value;
   }
+
+  getIsValid() {
+    console.log(!!this.isValid);
+    return !!this.isValid;
+  }
+  onButtonClick(event) {
+    console.log('Button in the footer clicked ' + event + '\n');
+  }
+
 }

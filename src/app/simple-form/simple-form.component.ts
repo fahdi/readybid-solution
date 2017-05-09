@@ -10,6 +10,7 @@ import {
   OnChanges
 } from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validator} from '@angular/forms';
+import {FormData} from './formdata.model';
 
 @Component({
   selector: 'app-simple-form',
@@ -17,11 +18,20 @@ import {FormBuilder, FormGroup, NgForm, Validator} from '@angular/forms';
   styleUrls: ['./simple-form.component.css']
 })
 
-export class SimpleFormComponent implements OnInit, AfterViewChecked {
+export class SimpleFormComponent implements AfterViewChecked {
+  @Input()
+  isValid = true;
+
+  @Output()
+  validFlag: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   textNumberForm: NgForm;
   @ViewChild('textNumberForm') currentForm: NgForm;
-  @Output() isValid = new EventEmitter();
+
+  formValues: FormData = {
+    theText: 'text',
+    theNumber: 12.33
+  };
 
   // Defining the validation error messages
   validationMessages = {
@@ -35,21 +45,10 @@ export class SimpleFormComponent implements OnInit, AfterViewChecked {
     }
   };
 
-  formValues: FormData = {
-    theText: 'text',
-    theNumber: 12.33
-  };
-
   formErrors = {
     'theText': '',
     'theNumber': ''
   };
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 
   ngAfterViewChecked() {
     this.formChanged();
@@ -63,14 +62,13 @@ export class SimpleFormComponent implements OnInit, AfterViewChecked {
 
     if (this.currentForm.valid) {
       console.log('emit valid');
-      this.isValid.emit(true);
+      this.validFlag.emit(true);
     } else {
       console.log('emit invalid');
-      this.isValid.emit(false);
+      this.validFlag.emit(false);
     }
 
     if (this.currentForm === this.textNumberForm) {
-      console.log('did work');
       return;
     }
 
@@ -104,9 +102,3 @@ export class SimpleFormComponent implements OnInit, AfterViewChecked {
   }
 
 }
-
-export class FormData {
-  theText: string;
-  theNumber: number;
-}
-
