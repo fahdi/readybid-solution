@@ -41,7 +41,8 @@ export class SimpleFormComponent implements AfterViewChecked {
     },
     'theNumber': {
       'required': 'The number is required.',
-      'pattern': 'Only two decimal places are allowed'
+      'pattern': 'Only postive numbers with two decimal places are allowed',
+      'max' : '10,000 is the maximum number allowed'
     }
   };
 
@@ -94,7 +95,10 @@ export class SimpleFormComponent implements AfterViewChecked {
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
         for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
+          if (typeof messages[key] !== 'undefined') {
+            this.formErrors[field] += messages[key] + ' ';
+          }
+
         }
 
       }
