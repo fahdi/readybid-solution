@@ -1,5 +1,12 @@
 <div id="app">
   <app-header></app-header>
+  <button (click)="showDialog = !showDialog" class="btn">Open</button>
+
+  <app-dialog [(visible)]="showDialog">
+    <h1>Hello World</h1>
+    <button (click)="showDialog = !showDialog" class="btn">Close</button>
+  </app-dialog>
+
   <app-simple-form (validFlag)="setIsValid($event)"></app-simple-form>
   <app-http-logger-console></app-http-logger-console>
   <app-footer (submitted)="onButtonClick($event)"></app-footer>

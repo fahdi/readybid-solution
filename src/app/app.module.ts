@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { HttpLoggerConsoleComponent } from './http-logger-console/http-logger-console.component';
 import {HttpLoggerService} from './http-logger.service';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {HttpLoggerService} from './http-logger.service';
     HeaderComponent,
     FooterComponent,
     SimpleFormComponent,
-    HttpLoggerConsoleComponent
+    HttpLoggerConsoleComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
